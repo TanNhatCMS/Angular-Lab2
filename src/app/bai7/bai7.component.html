@@ -1,24 +1,24 @@
 <div class="col-md-6 offset-md-3">
   <div class="card">
     <div class="card-header text-center">
-      <h4  style="color:green">Tìm giá trị lớn nhất của ba số</h4>
+      <h4 style="color:#009eff">Phát sinh ngẫu nhiên mảng một chiều có các số nguyên.</h4>
     </div>
     <div class="card-body">
       <form action="" method="post">
         <div class="form-group">
-          <label for="a">Nhập số A</label>
-          <input type="number" name="a" id="a" class="form-control" [(ngModel)]="SoA" aria-description="heldId">
+          <label for="n">Nhập số phần tử:</label>
+          <input type="number" name="n" id="n" class="form-control" [(ngModel)]="N" aria-description="heldId">
         </div>
         <div class="form-group">
-          <label for="b">Nhập số B</label>
-          <input type="number" name="b" id="b" class="form-control" [(ngModel)]="SoB" aria-description="heldId">
+          <button class="btn btn-primary" (click)="generateRandomArray()">Ngẫu nhiên</button>
         </div>
-        <div class="form-group">
-          <label for="c">Nhập số C</label>
-          <input type="number" name="c" id="c" class="form-control" [(ngModel)]="SoC" aria-description="heldId">
+        <div *ngIf="randomArray && randomArray.length > 0">
+         [ {{ randomArray }} ]
         </div>
-        <div class="card-footer">
-          <h3 style="color:green">MAX: {{isMax()}}</h3>
+        <div *ngIf="ArrayNumeric && ArrayNumeric.length > 0" class="card-footer text-danger">
+          Số chính phương nằm tại những vị trí lẻ trong mảng
+          <br>
+          [ {{  ArrayNumeric }} ]
         </div>
       </form>
     </div>
