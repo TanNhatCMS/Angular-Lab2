@@ -8,10 +8,11 @@
       <form action="" method="post">
         <div class="form-group">
           <label for="n">Nhập số N</label>
-          <input type="number" name="n" id="na" class="form-control" [(ngModel)]="N" aria-description="heldId">
+          <input type="number" name="n" id="n" class="form-control" [(ngModel)]="N" (ngModelChange)="LietKe()" aria-description="heldId">
         </div>
-        <div class="card-footer text-danger">
-          {{ LietKe() }}
+        <div *ngIf="lietke" class="card-footer text-danger">
+          Các số chính phương:<br>
+          {{ lietke }}
         </div>
       </form>
     </div>
