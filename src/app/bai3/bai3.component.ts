@@ -1,13 +1,14 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
+import {isNotVoid} from "typed-assert";
 
 @Component({
   selector: 'app-bai3',
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="row">
+    <div *ngIf="isVisible" class="row">
       <div class="col-md-6 offset-md-3">
         <div class="card">
           <div class="card-header text-center text-primary">
@@ -37,4 +38,5 @@ export class Bai3Component {
   AddItem(value: string) {
     this.newItem.emit(value)
   }
+  @Input() isVisible!: boolean;
 }
