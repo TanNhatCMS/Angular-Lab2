@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
 
 @Component({
@@ -9,36 +9,18 @@ import {FormsModule} from "@angular/forms";
   templateUrl: './bai5.component.html'
 })
 export class Bai5Component {
-  SoA: any;
-  SoB: any;
-  kq: any;
-  chon: any;
 
-  Tinh() {
-    if(isNaN(this.SoA) || isNaN(this.SoB)){
-      this.kq = "Vui lòng nhập số";
-      return;
-    }
-    switch (this.chon) {
-      case '+':
-        this.kq = Number(this.SoA ) +  Number(this.SoB);
-        break;
-      case '-':
-        this.kq = Number(this.SoA) - Number(this.SoB);
-        break;
-      case '*':
-        this.kq = Number(this.SoA) * Number(this.SoB);
-        break;
-      case '/':
-        if(Number(this.SoB) == 0){
-          this.kq = "Không thể chia cho 0";
-          break;
-        }
-        this.kq = Number(this.SoA) / Number(this.SoB);
-        break;
-      default:
-        this.kq = "phép tính không hợp lệ";
-        break;
+  randomArray: number[] = [];
+
+  generateRandomArray() {
+    const length = 10;
+    let minValue = 1;
+    this.randomArray = [];
+
+    for (let i = 0; i < length; i++) {
+      const randomNumber = Math.floor(Math.random() * (100 - minValue + 1)) + minValue;
+      minValue = randomNumber + 1;
+      this.randomArray.push(randomNumber);
     }
   }
 }
