@@ -9,23 +9,23 @@ import {FormsModule} from "@angular/forms";
   templateUrl: './bai7.component.html',
 })
 export class Bai7Component {
-  SoA: any;
-  SoB: any;
-  SoC: any;
-  kq: any;
-
-  isMax() {
-    if(isNaN(this.SoA) || isNaN(this.SoB) || isNaN(this.SoC)){
-      this.kq = "Vui lòng nhập số";
-      return this.kq ;
+  randomArray: number[] = [];
+  ArrayNumeric: number[] = [];
+  N: any | 0;
+  generateRandomArray() {
+    const length = this.N;
+    let minValue = 1;
+    this.randomArray = [];
+    this.ArrayNumeric = [];
+    for (let i = 0; i < length; i++) {
+      const randomNumber = Math.floor(Math.random() * (100 - minValue + 1)) + minValue;
+      minValue = randomNumber + 1;
+      this.randomArray.push(randomNumber);
     }
-    if(Number(this.SoA)>Number(this.SoB) && Number(this.SoA)>Number(this.SoC)){
-      this.kq = this.SoA;
-    }else if(Number(this.SoB)>Number(this.SoA) && Number(this.SoB)>Number(this.SoC)){
-      this.kq = this.SoB;
-    }else if(Number(this.SoC)>Number(this.SoA) && Number(this.SoC)>Number(this.SoB)) {
-      this.kq = this.SoC;
+    for(let i=0;i<this.randomArray.length;i++){
+      if(Math.sqrt(this.randomArray[i])%1==0){
+        this.ArrayNumeric.push(this.randomArray[i]);
+      }
     }
-    return this.kq;
   }
 }
