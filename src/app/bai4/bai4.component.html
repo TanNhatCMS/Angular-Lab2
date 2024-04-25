@@ -1,4 +1,22 @@
-<h1 style="color:green">Disabled Directive</h1>
-<button (click)="toggleDisabled()">Click to Disable</button>
-<button [disabled]="isDisabled" (click)="myClick()">Message</button>
-<button [hidden]="isDisabled" (click)="toggleDisabled()">Click to Enable</button>
+<div class="col-md-6 offset-md-3">
+  <div class="card">
+    <div class="card-header text-center">
+      <h4 style="color:#009eff">Nhập xuất mảng một chiều ngẫu nhiên</h4>
+    </div>
+    <div class="card-body">
+      <form action="" method="post">
+        <div class="form-group">
+          <label for="n">Nhập số phần tử:</label>
+          <input type="number" name="n" id="n" class="form-control" [(ngModel)]="N" aria-description="heldId">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" (click)="generateRandomArray()">Ngẫu nhiên</button>
+        </div>
+        <div *ngIf="randomArray && randomArray.length > 0" class="card-footer text-danger">
+          <p class="text-secondary"> Các phần tử ngẫu nhiên trong mảng:</p>
+          [ {{ randomArray }} ]
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
