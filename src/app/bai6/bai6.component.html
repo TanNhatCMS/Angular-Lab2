@@ -1,23 +1,24 @@
 <div class="col-md-6 offset-md-3">
   <div class="card">
     <div class="card-header text-center">
-      <h4>Nhập vào hai số nguyên a, b.<br> In ra màn hình giá trị lớn nhất.</h4>
+      <h4 style="color:#009eff">Xuất các phần tử lẻ có trong mảng</h4>
     </div>
     <div class="card-body">
       <form action="" method="post">
         <div class="form-group">
-          <label for="a">Nhập số A</label>
-          <input type="number" name="a" id="a" class="form-control" [(ngModel)]="SoA" aria-description="heldId">
+          <label for="n">Nhập số phần tử:</label>
+          <input type="number" name="n" id="n" class="form-control" [(ngModel)]="N" aria-description="heldId">
         </div>
         <div class="form-group">
-          <label for="b">Nhập số B</label>
-          <input type="number" name="b" id="b" class="form-control" [(ngModel)]="SoB" aria-description="heldId">
+          <button class="btn btn-primary" (click)="generateRandomArray()">Ngẫu nhiên</button>
         </div>
-        <div class="form-group">
-          <button class="btn btn-success" (click)="Tinh()">Tính</button>
+        <div *ngIf="randomArray && randomArray.length > 0">
+          Các phần tử ngẫu nhiên trong mảng:
+         <p  class="text-danger">[ {{ randomArray }} ]</p>
         </div>
-        <div class="card-footer text-danger">
-          <p>Kết quả: {{ kq }}</p>
+        <div *ngIf="ArrayNumeric && ArrayNumeric.length > 0" class="card-footer text-danger">
+          <p class="text-secondary"> Các phần lẻ trong mảng:</p>
+          [ {{  ArrayNumeric }} ]
         </div>
       </form>
     </div>
