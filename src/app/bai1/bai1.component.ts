@@ -11,6 +11,7 @@ import {RouterLink, RouterOutlet} from "@angular/router";
 })
 export class Bai1Component {
   N: any | 0 ;
+  randomArray: number[] = [];
   KTNT(n: number) {
     if (n < 2) return 0
     for (let i = 2; i < n; i++) {
@@ -20,13 +21,13 @@ export class Bai1Component {
     return 1
   }
   LietKe(){
-    var str=''
-    var n=parseInt(this.N);
+    this.randomArray = [];
+    const n = parseInt(this.N);
     for(let i=1;i< n;i++){
       if(this.KTNT(i)==1){
-        str+=i+','
+        this.randomArray.push(i);
       }
     }
-    return str
+    return this.randomArray.join(', ')
   }
 }
